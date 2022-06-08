@@ -1,12 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,600;1,200&display=swap");
+
 .App {
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.Great {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 95, 109, 0.85) 5%,
+    rgba(255, 174, 112, 0.75) 89%,
+    rgba(255, 195, 113, 0.5) 100%
+  );
+  /* background-image: url(../../el/Moon.svg);
+  background-size: cover; */
+}
+.text-font-Kanit {
+  font-family: Kanit, sans-serif;
+  /* color: white; */
 }
 
+header {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 100%,
+    rgba(111, 86, 255, 0) 34%
+  );
+  /* background: linear-gradient(
+    180deg,
+    rgba(218, 45, 74, 0.74) 100%,
+    rgba(27, 0, 177, 0) 34%
+  ); */
+  font-family: Kanit, sans-serif;
+
+  box-shadow: rgba(255, 195, 113, 0.5) 0px 48px 100px 0px;
+}
+.navhead a {
+  cursor: pointer;
+}
+.navhead {
+  overflow: hidden;
+  background-image: url(../../el/Groupheadblub.svg);
+  background-size: cover;
+
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  font-family: "Work Sans", sans-serif;
+  background-color: rgb(253, 254, 255);
+  /* box-shadow: rgba(255, 255, 255, 0.5) 0px 41px 100px 0px; */
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+.gradLoginbut {
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+.gradLogin {
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
