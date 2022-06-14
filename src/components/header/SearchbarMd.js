@@ -4,7 +4,7 @@ import { TbMinusVertical } from "react-icons/tb";
 import DropdownOpt from "./unity/DropdownOpt";
 import LottoNumbs from "./unity/LotNumbs";
 
-function SearchbarMd() {
+function SearchbarMd({ Narr, setNarr }) {
   return (
     <div>
       <div className="flex justify-center">
@@ -12,16 +12,22 @@ function SearchbarMd() {
           <h1 className=" text-xl  text-gray">งวดวันที่ 1 มิถุนายน 2565</h1>
 
           <TbMinusVertical size={30} />
-          <LottoNumbs />
-          <div className="flex flex-col">
-            <SmPillButton text="ค้นหาเลข" />
-            <SmPillButton text="ค้นหาเลข" />
-          </div>
+          <form className="flex">
+            <LottoNumbs Narr={Narr} setNarr={setNarr} />
+          </form>
+          <div className=" grid grid-cols-9 mt-4">
+            <div className="flex flex-col col-span-4">
+              <SmPillButton text="ค้นหาเลข" />
+              <SmPillButton text="ค้นหาเลข" />
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <TbMinusVertical size={30} className={" justify-self-center"} />
+            </div>
 
-          <TbMinusVertical size={30} />
-          <div className="flex flex-col">
-            <SmPillButton text="ค้นหาเลข" />
-            <SmPillButton text="ค้นหาเลข" />
+            <div className="flex flex-col col-span-4">
+              <SmPillButton text="ค้นหาเลข" />
+              <SmPillButton text="ค้นหาเลข" />
+            </div>
           </div>
         </div>
       </div>

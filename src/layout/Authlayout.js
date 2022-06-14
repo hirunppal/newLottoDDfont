@@ -5,7 +5,7 @@ import HeaderBase from "../components/header/HeaderBase";
 
 function Authlayout() {
   return (
-    <div className="min-vh-100 tw-pt-14">
+    <div className=" min-h-screen">
       <HeaderBase />
       <Outlet />
     </div>

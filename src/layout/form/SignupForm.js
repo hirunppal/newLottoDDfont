@@ -43,7 +43,6 @@ function SignupForm({ switching, setSwitching }) {
               <input
                 type="text"
                 className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleFormControlInput1"
                 placeholder="ชื่อ"
                 value={firstName}
                 onChange={(e) => {
@@ -55,7 +54,6 @@ function SignupForm({ switching, setSwitching }) {
               <input
                 type="text"
                 className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleFormControlInput1"
                 placeholder="นามสกุล"
                 value={lastName}
                 onChange={(e) => {
@@ -67,7 +65,6 @@ function SignupForm({ switching, setSwitching }) {
               <input
                 type="email"
                 className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleFormControlInput1"
                 placeholder="อีเมล / เบอร์โทรศัพท์"
                 value={emailOrPhone}
                 onChange={(e) => {
@@ -79,7 +76,6 @@ function SignupForm({ switching, setSwitching }) {
               <input
                 type="password"
                 className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleFormControlInput1"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => {
@@ -91,7 +87,6 @@ function SignupForm({ switching, setSwitching }) {
               <input
                 type="password"
                 className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleFormControlInput1"
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={(e) => {

@@ -1,19 +1,21 @@
-import axios from "axios";
-import Itemcards from "../ProductBody/itemcards";
 import Headdertop from "./headdertop";
 import Searchbar from "./Searchbar";
+import { useLocation } from "react-router-dom";
 function HeaderBase() {
-  // const getomise = async () => {
-  //   const checkoutFrom = await axios.get("https://cdn.omise.co/omise.js");
-  //   console.log(checkoutFrom);
-  //   return checkoutFrom;
-  // };
-  // getomise();
+  const locateParth = useLocation().pathname;
   return (
     <>
-      <div className="navhead w-screen gap-4 h-auto flex flex-col">
+      <div className="navhead w-screen gap-4 h-auto flex flex-col z-50 ">
         <Headdertop />
-        <Searchbar />
+        {locateParth == "/cart" ? (
+          <div className=" flex  p-8 text-white mx-auto ">
+            <h1 className="text-font-Kanit text-2xl text-center">
+              ตระกร้าสินค้า
+            </h1>
+          </div>
+        ) : (
+          <Searchbar />
+        )}
       </div>
     </>
   );

@@ -1,8 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth";
 
-function SigninForm({ switching, setSwitching }) {
-  const [email0rPhone, setemail0rPhone] = useState();
+function SigninForm({ switching, setSwitching, setShowModal, tryto }) {
+  const [emailOrPhone, setemailOrPhone] = useState();
   const [password, setpassword] = useState();
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const handlesubmitSignIn = async (e) => {
+    e.preventDefault();
+    const input = { emailOrPhone, password };
+    await signIn(input);
+    setShowModal(false);
+    console.log(tryto);
+    if (tryto) {
+      navigate(tryto);
+    }
+  };
   return (
     <div
       // className="lg:w-11/12 px-6 md:px-0 flex flex-nowrap "
@@ -14,17 +28,16 @@ function SigninForm({ switching, setSwitching }) {
         <div className="text-center">
           <h4 className="text-xl font-semibold mt-1 mb-12 pb-1">Signin</h4>
         </div>
-        <form>
+        <form onSubmit={handlesubmitSignIn}>
           <p className="mb-4">Please login to your account</p>
           <div className="mb-4">
             <input
               type="text"
               className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleFormControlInput1"
               placeholder="อีเมล / เบอร์โทรศัพท์"
-              value={email0rPhone}
+              value={emailOrPhone}
               onChange={(e) => {
-                setemail0rPhone(e.target.value);
+                setemailOrPhone(e.target.value);
               }}
             />
           </div>
@@ -32,7 +45,6 @@ function SigninForm({ switching, setSwitching }) {
             <input
               type="password"
               className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleFormControlInput1"
               placeholder="Password"
               value={password}
               onChange={(e) => {

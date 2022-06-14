@@ -1,22 +1,37 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import Mycart from "../components/checkout/Mycart";
-import HeaderBase from "../components/header/HeaderBase";
+import { useAuth } from "../context/auth";
+import Mycart from "../components/checkout/Mycart2Checkout";
 import Serchbody from "../components/ProductBody/productHero";
 import Searchpage from "../pages/searchpage";
+import Modlayout from "../pages/adminpages/admin";
+import Homepage from "../pages/home";
 import Authlayout from "../layout/Authlayout";
-import { useAuth } from "../context/auth";
-import Signinpage from "../pages/Signinpage";
+import Checklottopage from "../pages/checklottopage";
+import PdCreate from "../components/admins/ProductsManage/PdCreate";
 
 function Mainrounte() {
   // const transaction = [1, 2, 3, 4];
   const { user } = useAuth();
   return (
     <Routes>
-      <Route path="/index" element={<HeaderBase />}></Route>
+      {/* <Route path="/index" element={<HeaderBase />}></Route> */}
       <Route path="/" element={<Authlayout />}>
-        <Route path="search" element={<Searchpage />} />
-        <Route path="cart" element={<Mycart />} />
-        <Route path="sn" element={<Signinpage />} />
+        <Route
+          path=""
+          element={
+            <>
+              <Homepage />
+              <Searchpage />
+            </>
+          }
+        />
+        <Route path="checklotto" element={<Checklottopage />} />
+        <Route path="*" element={<Navigate to="/" />} />
+
+        {user ? <Route path="cart" element={<Mycart />} /> : <></>}
+      </Route>
+      <Route path="/admin" element={<Modlayout />}>
+        {/* <Route path="/admin/products" element={<PdCreate />} /> */}
       </Route>
     </Routes>
   );

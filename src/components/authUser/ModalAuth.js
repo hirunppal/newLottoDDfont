@@ -1,28 +1,48 @@
 import SigninForm from "../../layout/form/SigninForm";
 import SignupForm from "../../layout/form/SignupForm";
-import { useState } from "react";
-// import Signinpage from "../../pages/Signinpage";
+import { useEffect, useState } from "react";
 
-export default function Modal({ avatar }) {
+export default function Modal({ avatar, onStart, tryto }) {
   const [switching, setSwitching] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const [blip, setblipping] = useState(false);
+  console.log(tryto); // const [blip, setblipping] = useState(false);
+
   return (
     <>
-      <div onClick={() => setShowModal(true)}>{avatar}</div>
+      <div
+        className="inline"
+        onClick={() => {
+          setShowModal(true);
+          if (onStart) {
+            setShowModal(1);
+          }
+        }}
+      >
+        {avatar}
+      </div>
       {showModal ? (
         <>
           <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none "
+            className=" bg-neutral bg-opacity-40 focus:bg-opacity-20 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none   "
             onDoubleClick={(e) => setShowModal(false)}
           >
             {/* <div className="py-12 px-6 h-2/3"> */}
-            <div className="flex justify-center bg-white shadow-lg rounded-lg items-center flex-warp gap-6 text-gray-800">
-              <SigninForm setSwitching={setSwitching} switching={switching} />
-              <SignupForm setSwitching={setSwitching} switching={switching} />
+            <div className="flex justify-center bg-white shadow-lg rounded-lg items-center flex-warp gap-6 text-gray-800 ">
+              <SigninForm
+                setSwitching={setSwitching}
+                switching={switching}
+                setShowModal={setShowModal}
+                tryto={tryto}
+              />
+              <SignupForm
+                setSwitching={setSwitching}
+                switching={switching}
+                setShowModal={setShowModal}
+                tryto={tryto}
+              />
             </div>
             <button className="-mt-96 " onClick={() => setShowModal(false)}>
-              <span className=" text-gray-400 h-6 w-6 text-3xl block outline-none focus:outline-none">
+              <span className=" text-gray-400 h-6 w-6 text-4xl block outline-none focus:outline-none">
                 ×
               </span>
             </button>
@@ -59,3 +79,4 @@ export default function Modal({ avatar }) {
   </div>{" "}
   */
 }
+// export { showModal };

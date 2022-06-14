@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createUser } from "../APIs/userauth";
-import axios from "../config/axios";
+import { createUser, getUser, signInUser } from "../APIs/userauth";
 import {
   getAccessToken,
   removeAccessTOken,
@@ -19,13 +18,13 @@ function AuthContextProvider({ children }) {
       try {
         const token = getAccessToken();
         if (token) {
-          const resMe = await axios.get("/index");
+          const resMe = await getUser();
           // console.log(resMe.data.user);
-          await setUser(resMe.data.user);
-          console.log(user);
+          setUser(resMe.data.user);
+          // console.log(user);
         }
       } catch (err) {
-        console.log("User Auth fail");
+        console.log("User Autoriztion fail");
       }
     };
     fetchme();
@@ -34,37 +33,31 @@ function AuthContextProvider({ children }) {
   const signUp = async (input) => {
     const res = await createUser(input);
     setAccessToken(res.data.token);
-    console.log(res);
-    // const resMe = await axios.get("/me");
-    // // console.log(resMe.data.user);
-    // setUser(resMe.data.user);
-    navigate("/");
+    // console.log(res);
+    const resMe = await getUser();
+    setUser(resMe.data.user);
   };
-  const login = async (emailOrPhone, password) => {
-    const res = await axios.post("/user/login", {
-      emailOrPhone,
-      password,
-    });
+  const signIn = async (input) => {
+    const res = await signInUser(input);
     setAccessToken(res.data.token);
     if (res.data.token) {
-      const resMe = await axios.get("/me");
+      const resMe = await getUser();
       setUser(resMe.data.user);
     }
   };
-  const logouted = () => {
-    // console.log("BYE");
+  const SignOut = () => {
     removeAccessTOken();
     setUser(null);
   };
   return (
     <AuthContext.Provider
       value={{
-        login,
-        logouted,
+        signIn,
+        SignOut,
         signUp,
         setUser,
         user,
-        // useAuth,
+        // showModal,
       }}
     >
       {children}
