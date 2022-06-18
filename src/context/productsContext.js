@@ -4,6 +4,7 @@ import {
   createOrderbyCart,
   getallProducts,
   getcartProduct,
+  getQrcode,
 } from "../APIs/product";
 
 const ProductContext = createContext();
@@ -12,7 +13,14 @@ function ProductContextProvider({ children }) {
   const [products, Setproducts] = useState([]);
   const [cartItems, SetcartItems] = useState([]);
   const [pdfilter, Setpdfilter] = useState(null);
-  const navigate = useNavigate();
+  const [orders, setOrders] = useState(null);
+  const [Qr, setQr] = useState(null);
+  const [paymodal, setpaymodal] = useState(false);
+  const [ordertopay, setordertopay] = useState(null);
+
+  const [searchbarState, setSearchbarstate] = useState(false);
+
+  // const navigate = useNavigate();
   useEffect(() => {
     const fetchpd = async () => {
       const pd = await getallProducts();
@@ -31,11 +39,13 @@ function ProductContextProvider({ children }) {
   };
   const createOrder = async (cart) => {
     const res = await createOrderbyCart(cart);
+    console.log(res);
     return res;
   };
-  const createQrtopay = async (resproductOrder) => {
-    // const res = await createOrderbyCart(cart);
-    // return res;
+  const createQrtopay = async (id) => {
+    const res = await getQrcode(id);
+    // console.log(res);
+    return res;
   };
   return (
     <ProductContext.Provider
@@ -46,6 +56,16 @@ function ProductContextProvider({ children }) {
         SetcartItems,
         createOrder,
         createQrtopay,
+        searchbarState,
+        setSearchbarstate,
+        orders,
+        setOrders,
+        setQr,
+        Qr,
+        paymodal,
+        setpaymodal,
+        ordertopay,
+        setordertopay,
       }}
     >
       {children}

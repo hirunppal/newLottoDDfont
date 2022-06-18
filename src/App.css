@@ -6,6 +6,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .Great {
+  height: auto;
   background: linear-gradient(
     0deg,
     rgba(255, 95, 109, 0.85) 5%,

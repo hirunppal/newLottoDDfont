@@ -22,23 +22,27 @@ function Headdertop() {
           </a>
         </div>
         {/* <div className="  "></div> */}
+
         <div className=" flex-grow-2 min-w-600 w-3/6 flex flex-nowrap justify-between">
-          <a
-            className=" block text-lg text-white hover:text-gray-900"
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            หน้าหลัก
-          </a>
-          <a
-            className="block text-lg text-white hover:text-gray-900"
-            onClick={(e) => {
-              navigate("/checklotto");
-            }}
-          >
-            ตรวจสอบรางวัล
-          </a>
+          <div className="flex justify-between w-1/2">
+            <a
+              className=" block hover:-translate-y-1 hover:scale-120  duration-300 text-lg text-white hover:text-gray-900"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              หน้าหลัก
+            </a>
+            <a
+              className="block hover:-translate-y-1 hover:scale-120  duration-300 text-lg text-white hover:text-gray-900 mx-10"
+              onClick={(e) => {
+                navigate("/checklotto");
+              }}
+            >
+              ตรวจสอบรางวัล
+            </a>
+          </div>
+
           {user ? (
             <>
               {/* //my info */}

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 
-function SignupForm({ switching, setSwitching }) {
+function SignupForm({ switching, setSwitching, tryto, setShowModal }) {
   const [firstName, setFirstname] = useState();
   const [lastName, setlastname] = useState();
   const [emailOrPhone, setemailOrPhone] = useState();
@@ -9,6 +10,8 @@ function SignupForm({ switching, setSwitching }) {
   const [confirmPassword, setconfirmPassword] = useState();
 
   const { signUp } = useAuth();
+  const navigate = useNavigate();
+
   const handlesubmitSignup = async (el) => {
     try {
       el.preventDefault();
@@ -20,6 +23,10 @@ function SignupForm({ switching, setSwitching }) {
         confirmPassword,
       };
       await signUp(input);
+      setShowModal(false);
+      if (tryto) {
+        navigate(tryto);
+      }
     } catch (err) {
       console.log(err);
     }

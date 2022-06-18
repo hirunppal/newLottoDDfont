@@ -1,11 +1,5 @@
 import axios from "../config/axios";
-// export const CreatePost = async (title, image) => {
-//   const formData = new FormData();
-//   formData.append("title", title); // Name string  , Value from att
-//   formData.append("image", image);
-//   const res = await axios.post("/post", formData);
-//   return console.log(res);
-// };
+
 export const getallProducts = async () => {
   const res = await axios.get("/search");
   // console.log(res.data);
@@ -17,5 +11,10 @@ export const getcartProduct = async (id) => {
 };
 export const createOrderbyCart = async (carts) => {
   const res = await axios.post("/od/createOrder", { cartItems: carts });
+  return res.data;
+};
+
+export const getQrcode = async (id) => {
+  const res = await axios.get("/od/Qr/" + id);
   return res.data;
 };

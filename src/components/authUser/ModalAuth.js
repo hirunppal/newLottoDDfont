@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export default function Modal({ avatar, onStart, tryto }) {
   const [switching, setSwitching] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  console.log(tryto); // const [blip, setblipping] = useState(false);
+  // console.log(tryto); // const [blip, setblipping] = useState(false);
 
   return (
     <>

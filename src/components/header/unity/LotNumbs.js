@@ -22,14 +22,13 @@ function LottoNumbs({ Narr, setNarr }) {
   };
   const { Setpdfilter } = useProduct();
   const handleClickSearch = () => {
-    Setpdfilter((prev) => (prev = N1 + N2 + N3 + N4 + N5 + N6));
+    Setpdfilter((prev) => N1 + N2 + N3 + N4 + N5 + N6);
   };
   const handleClickClear = () => {
     Setpdfilter(null);
     for (let k in setstateObj) {
       console.log(setstateObj[k]);
       setstateObj[k]("");
-      // k(null);
     }
   };
   // const setvaluestate = (value, idx) => {

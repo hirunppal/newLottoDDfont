@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { createUser, getUser, signInUser } from "../APIs/userauth";
 import {
   getAccessToken,
@@ -12,6 +12,7 @@ const AuthContext = createContext();
 function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const locateParth = useLocation().pathname;
 
   useEffect(() => {
     const fetchme = async () => {
@@ -19,9 +20,8 @@ function AuthContextProvider({ children }) {
         const token = getAccessToken();
         if (token) {
           const resMe = await getUser();
-          // console.log(resMe.data.user);
+          console.log(resMe.data.user);
           setUser(resMe.data.user);
-          // console.log(user);
         }
       } catch (err) {
         console.log("User Autoriztion fail");
@@ -32,13 +32,16 @@ function AuthContextProvider({ children }) {
 
   const signUp = async (input) => {
     const res = await createUser(input);
+    console.log(res);
     setAccessToken(res.data.token);
-    // console.log(res);
-    const resMe = await getUser();
-    setUser(resMe.data.user);
+    if (res.data.token) {
+      const resMe = await getUser();
+      setUser(resMe.data.user);
+    }
   };
   const signIn = async (input) => {
     const res = await signInUser(input);
+    console.log(res);
     setAccessToken(res.data.token);
     if (res.data.token) {
       const resMe = await getUser();

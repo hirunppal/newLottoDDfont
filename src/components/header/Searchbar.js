@@ -7,8 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Searchbar() {
   const [Narr, setNarr] = useState([]);
 
-  const [searchbarState, setSearchbarstate] = useState(false);
-  const { Setpdfilter } = useProduct();
+  const { Setpdfilter, searchbarState, setSearchbarstate } = useProduct();
   const navigate = useNavigate();
   const handleSearchhit = async () => {
     if (Narr.length < 6) {

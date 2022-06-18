@@ -21,7 +21,7 @@ function Foorcart({ sumPrice }) {
             <div className="px-md-5 " id="footer-font">
               <b className="pl-md-4  text-gray-200">
                 ราคารวมทั้งหมด{" "}
-                <span className="pl-md-4">{`  ${sumPrice()} .-  `}</span>
+                <span className="pl-md-4">{`  ${sumPrice} .-  `}</span>
               </b>
             </div>
           </div>

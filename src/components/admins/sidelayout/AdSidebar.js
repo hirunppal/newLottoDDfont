@@ -2,9 +2,19 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Menusmodside from "./Menus";
 import { AiOutlineDisconnect } from "react-icons/ai";
+import { removeModsTOken } from "../../../services/localStorage";
 
-function AdSidebar() {
+function AdSidebar({ Setmodmodules }) {
   const navigate = useNavigate();
+  const handleChangemodule = (module) => {
+    console.log(module);
+    Setmodmodules(module);
+  };
+  const handledisconnect = () => {
+    removeModsTOken();
+    navigate("/");
+  };
+
   return (
     <div>
       <aside
@@ -13,13 +23,15 @@ function AdSidebar() {
       >
         <div className="overflow-y-auto py-4 px-3 h-full bg-gray-800 rounded ">
           <div className=" flex-none block text-2xl w-full">
-            <a onClick={() => navigate("/")}>ล็อตโต้.DD</a>
+            <a className=" cursor-pointer" onClick={() => navigate("/")}>
+              ล็อตโต้.DD
+            </a>
             <span className="flex w-1/3 h-7  justify-center items-center px-2 m-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">
               Admin
             </span>
           </div>
           <ul className="space-y-2">
-            <li>
+            {/* <li>
               <a
                 href="#"
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -35,26 +47,29 @@ function AdSidebar() {
                 </svg>
                 <span className="ml-3">Dashboard</span>
               </a>
-            </li>
+            </li> */}
             <Menusmodside
-              linkto={"/admin/products"}
+              linkto={"PRODUCT"}
               titte={"Products"}
               iconComp={""}
+              handleChangemodule={handleChangemodule}
             />
             <Menusmodside
+              linkto={"PRODUCTADD"}
+              titte={"Add products"}
+              iconComp={""}
+              handleChangemodule={handleChangemodule}
+            />
+            {/* <Menusmodside
               linkto={"/admin/products"}
               titte={"Sellers"}
               iconComp={""}
-            />
-            <Menusmodside
-              linkto={"/admin/products"}
-              titte={"Addproducts"}
-              iconComp={""}
-            />
+            /> */}
             <Menusmodside
               linkto={"/admin/products"}
               titte={"Disconnect"}
               iconComp={<AiOutlineDisconnect size={22} />}
+              handleChangemodule={handledisconnect}
             />
           </ul>
         </div>

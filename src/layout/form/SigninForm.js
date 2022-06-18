@@ -12,7 +12,7 @@ function SigninForm({ switching, setSwitching, setShowModal, tryto }) {
     const input = { emailOrPhone, password };
     await signIn(input);
     setShowModal(false);
-    console.log(tryto);
+    // console.log(tryto);
     if (tryto) {
       navigate(tryto);
     }

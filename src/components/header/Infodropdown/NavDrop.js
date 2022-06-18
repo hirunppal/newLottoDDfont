@@ -11,6 +11,7 @@ function NavDrop({ user }) {
   };
   return (
     <div
+      className="h-auto p-0 mx-5 hover:-translate-y-2 hover:scale-100  duration-300"
       onMouseOver={() => {
         setNavdropshow(true);
       }}
@@ -23,36 +24,13 @@ function NavDrop({ user }) {
           ข้อมูลของฉัน
         </a>
       </div>
-      {/* <button
-        id="dropdownInformationButton"
-        data-dropdown-toggle="dropdownInformation"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        type="button"
-      >
-        Dropdown header{" "}
-        <svg
-          class="w-4 h-4 ml-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          ></path>
-        </svg>
-      </button> */}
 
       {/* <!-- Dropdown menu --> */}
       <div
         id="dropdownInformation"
-        style={{ backgroundColor: "#F0BE8E" }}
-        className={`z-50 ${
-          navdropshow ? "" : "hidden"
-        } divide-y divide-gray-100 rounded shadow w-44 `}
+        className={`z-50 bg-[#F0BE8E] ${
+          navdropshow ? "" : "hidden "
+        } divide-y divide-gray-100 rounded w-44 m-0`}
         onMouseOver={() => {
           setNavdropshow(true);
         }}
@@ -68,8 +46,10 @@ function NavDrop({ user }) {
         >
           <li>
             <a
-              href="#"
               className="block px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={(e) => {
+                navigate("/vault");
+              }}
             >
               ตู้เก็บล็อตโต้
             </a>
@@ -86,7 +66,7 @@ function NavDrop({ user }) {
         <div className="py-1">
           <Link
             to="#"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+            className="block px-1 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
             onClick={(e) => {
               handlesignout();
             }}

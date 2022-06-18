@@ -8,7 +8,7 @@ function Itemcards({ el }) {
   const { user } = useAuth();
   // console.log(lottoNum);
   return (
-    <div className=" min-w-fit max-w-sm rounded overflow-hidden text-font-Kanit m-4 bg-white bg-opacity-60 shadow-lg">
+    <div className="flex-auto w-3/12 min-w-3/12 rounded overflow-hidden text-font-Kanit m-4 bg-white bg-opacity-60 shadow-lg">
       <div className="px-14 py-4">
         <div className="flex flex-none -mt-2 -ml-7 ">
           <div className="font-bold text-sm mb-2">เลขเดี่ยว</div>

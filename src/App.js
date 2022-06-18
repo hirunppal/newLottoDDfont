@@ -9,7 +9,7 @@ function App() {
       <ProductContextProvider>
         <div className="App">
           <div className="Great flex h-screen w-auto flex-auto flex-col ">
-            <Mainrounte></Mainrounte>
+            <Mainrounte />
           </div>
         </div>
       </ProductContextProvider>

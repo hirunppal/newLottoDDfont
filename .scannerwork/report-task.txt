@@ -1,0 +1,6 @@
+projectKey=LottoDD
+serverUrl=http://localhost:9000
+serverVersion=9.5.0.56709
+dashboardUrl=http://localhost:9000/dashboard?id=LottoDD
+ceTaskId=AYFgYtD_U7hJtKB4Q7FK
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYFgYtD_U7hJtKB4Q7FK

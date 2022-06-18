@@ -2,18 +2,11 @@ import React, { useState } from "react";
 import { useProduct } from "../../context/productsContext";
 import Cartscard from "./Cartscard";
 import Footcart from "./Footcart";
-function Cartlists() {
+function Cartlists({ sumPrice }) {
   const [onCartEdit, setOncartEdit] = useState(false);
   const { cartItems } = useProduct();
-  console.log(cartItems[1]);
-  const sumPrice = () => {
-    if (cartItems) {
-      const sum = cartItems.reduce((total, el) => {
-        return total + +el.basePrice;
-      }, 0);
-      return sum;
-    }
-  };
+  // console.log(cartItems[1]);
+
   return (
     <>
       <div className="flex flex-col ">
